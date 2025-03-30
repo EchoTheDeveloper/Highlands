@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/highlands.dir/link.d CMakeFiles/highlands.dir/src/main.cpp.o CMakeFiles/highlands.dir/src/glad.c.o -o highlands  -Wl,-rpath,/usr/local/lib /usr/local/lib/libglfw.so.3.5 /usr/lib/libX11.so /usr/lib/libGLX.so /usr/lib/libOpenGL.so
