@@ -18,9 +18,12 @@ add_executable(
   imgui/imgui_demo.cpp
   imgui/imgui_draw.cpp
   imgui/imgui_tables.cpp
-  imgui/imgui_widgets.cpp)
+  imgui/imgui_widgets.cpp
+  imgui/imgui_impl_glfw.cpp
+  imgui/imgui_impl_opengl3.cpp)
 
-target_include_directories(highlands PRIVATE include/ ${X11_INCLUDE_DIR})
+target_include_directories(highlands PRIVATE include/ ${X11_INCLUDE_DIR} imgui/)
+
 target_link_libraries(highlands PRIVATE glfw OpenGL::GL X11::X11)
 
 target_compile_definitions(

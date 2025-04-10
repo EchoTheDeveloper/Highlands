@@ -1,6 +1,9 @@
 #include "glad/glad.h"
 #include <GLFW/glfw3.h>
 #include <fstream>
+#include <imgui.h>
+#include <imgui_impl_glfw.h>
+#include <imgui_impl_opengl3.h>
 #include <iostream>
 #include <vector>
 
@@ -18,10 +21,55 @@ std::string readShaderFile(const char *filePath) {
   return std::string(buffer.begin(), buffer.end());
 }
 
+unsigned int compileShader(const char *source, unsigned int type) {
+  unsigned int shader = glCreateShader(type);
+  glShaderSource(shader, 1, &source, NULL);
+  glCompileShader(shader);
+
+  int success;
+  char infoLog[512];
+  glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
+  if (!success) {
+    glGetShaderInfoLog(shader, 512, NULL, infoLog);
+    std::cerr << "ERROR::SHADER::COMPILATION_FAILED\n" << infoLog << std::endl;
+  }
+  return shader;
+}
+
+unsigned int createShaderProgram(const char *vertexShaderSource,
+                                 const char *fragmentShaderSource) {
+  unsigned int vertexShader =
+      compileShader(vertexShaderSource, GL_VERTEX_SHADER);
+  unsigned int fragmentShader =
+      compileShader(fragmentShaderSource, GL_FRAGMENT_SHADER);
+
+  unsigned int shaderProgram = glCreateProgram();
+  glAttachShader(shaderProgram, vertexShader);
+  glAttachShader(shaderProgram, fragmentShader);
+  glLinkProgram(shaderProgram);
+
+  int success;
+  char infoLog[512];
+  glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
+  if (!success) {
+    glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
+    std::cerr << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n"
+              << infoLog << std::endl;
+  }
+
+  glDeleteShader(vertexShader);
+  glDeleteShader(fragmentShader);
+
+  return shaderProgram;
+}
+
 int main() {
   const int WIDTH = 1280;
   const int HEIGHT = 1440;
 
+  GLFWwindow *window;
+
+  // Initialize GLFW
   if (!glfwInit()) {
     std::cerr << "Failed to initialize GLFW!" << std::endl;
     return -1;
@@ -31,7 +79,7 @@ int main() {
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-  GLFWwindow *window =
+  window =
       glfwCreateWindow(WIDTH, HEIGHT, "Highlands ~> Main", nullptr, nullptr);
   if (!window) {
     std::cerr << "Error! Window Null!" << std::endl;
@@ -41,12 +89,25 @@ int main() {
 
   glfwMakeContextCurrent(window);
 
-  if (!gladLoadGL()) {
+  // Initialize GLAD after creating the window
+  if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
     std::cerr << "Failed to initialize GLAD!" << std::endl;
     glfwDestroyWindow(window);
     glfwTerminate();
     return -1;
   }
+
+  // Now that we have a window, we can initialize ImGui
+  ImGui::CreateContext();
+  ImGuiIO &io = ImGui::GetIO();
+  io.ConfigFlags |=
+      ImGuiConfigFlags_NavEnableKeyboard; // Enable keyboard navigation
+
+  // Initialize ImGui OpenGL3 backend
+  ImGui_ImplOpenGL3_Init("#version 130");
+  ImGui_ImplGlfw_InitForOpenGL(window, true);
+
+  io.DisplaySize = ImVec2((float)WIDTH, (float)HEIGHT);
 
   glViewport(0, 0, WIDTH, HEIGHT);
 
@@ -71,60 +132,14 @@ int main() {
   glBindBuffer(GL_ARRAY_BUFFER, VBO);
   glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-  const char *vertexShaderSource = R"(
-  #version 450 core
-  layout(location = 0) in vec3 aPos;
-  void main()
-  {
-      gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
-  })";
+  // Load shaders from file
+  std::string vertexShaderSource =
+      readShaderFile("resources/shaders/shader.vert");
+  std::string fragmentShaderSource =
+      readShaderFile("resources/shaders/shader.frag");
 
-  const char *fragmentShaderSource = R"(
-  #version 450 core
-  out vec4 FragColor;
-  void main()
-  {
-      FragColor = vec4(0.2f, 0.3f, 0.8f, 1.0f); // Dark blue color
-  })";
-
-  unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
-  glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-  glCompileShader(vertexShader);
-
-  int success;
-  char infoLog[512];
-  glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
-  if (!success) {
-    glGetShaderInfoLog(vertexShader, 512, NULL, infoLog);
-    std::cerr << "ERROR::SHADER::VERTEX::COMPILATION_FAILED\n"
-              << infoLog << std::endl;
-  }
-
-  unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-  glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-  glCompileShader(fragmentShader);
-
-  glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
-  if (!success) {
-    glGetShaderInfoLog(fragmentShader, 512, NULL, infoLog);
-    std::cerr << "ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n"
-              << infoLog << std::endl;
-  }
-
-  unsigned int shaderProgram = glCreateProgram();
-  glAttachShader(shaderProgram, vertexShader);
-  glAttachShader(shaderProgram, fragmentShader);
-  glLinkProgram(shaderProgram);
-
-  glGetProgramiv(shaderProgram, GL_LINK_STATUS, &success);
-  if (!success) {
-    glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
-    std::cerr << "ERROR::SHADER::PROGRAM::LINKING_FAILED\n"
-              << infoLog << std::endl;
-  }
-
-  glDeleteShader(vertexShader);
-  glDeleteShader(fragmentShader);
+  unsigned int shaderProgram = createShaderProgram(
+      vertexShaderSource.c_str(), fragmentShaderSource.c_str());
 
   glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
   glEnableVertexAttribArray(0);
@@ -135,15 +150,26 @@ int main() {
   glClearColor(0.175f, 0.175f, 0.521f, 1.0f); // Set background to dark blue
 
   while (!glfwWindowShouldClose(window)) {
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui::NewFrame();
+
     glClear(GL_COLOR_BUFFER_BIT);
 
     glUseProgram(shaderProgram);
     glBindVertexArray(VAO);
-    glDrawArrays(GL_TRIANGLES, 0, 6); // Drawing two triangles (making a square)
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+
+    ImGui::Render();
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
     glfwSwapBuffers(window);
     glfwPollEvents();
   }
+
+  // Cleanup
+  ImGui_ImplOpenGL3_Shutdown();
+  ImGui_ImplGlfw_Shutdown();
+  ImGui::DestroyContext();
 
   glDeleteVertexArrays(1, &VAO);
   glDeleteBuffers(1, &VBO);
