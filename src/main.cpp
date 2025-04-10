@@ -149,16 +149,29 @@ int main() {
 
   glClearColor(0.175f, 0.175f, 0.521f, 1.0f); // Set background to dark blue
 
+  bool render = true;
+
   while (!glfwWindowShouldClose(window)) {
     ImGui_ImplOpenGL3_NewFrame();
     ImGui::NewFrame();
 
+    ImGui::Begin("Test");
+    if (ImGui::Button("Toggle Render")) {
+      if (render) {
+        render = false;
+      } else {
+        render = true;
+      }
+    }
+    ImGui::End();
+
     glClear(GL_COLOR_BUFFER_BIT);
 
-    glUseProgram(shaderProgram);
-    glBindVertexArray(VAO);
-    glDrawArrays(GL_TRIANGLES, 0, 6);
-
+    if (render) {
+      glUseProgram(shaderProgram);
+      glBindVertexArray(VAO);
+      glDrawArrays(GL_TRIANGLES, 0, 6);
+    }
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
