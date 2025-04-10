@@ -100,16 +100,96 @@ CMakeFiles/highlands.dir/src/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/highlands.dir/src/glad.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/arda/dev/Highlands/src/glad.c -o CMakeFiles/highlands.dir/src/glad.c.s
 
+CMakeFiles/highlands.dir/imgui/imgui.cpp.o: CMakeFiles/highlands.dir/flags.make
+CMakeFiles/highlands.dir/imgui/imgui.cpp.o: /home/arda/dev/Highlands/imgui/imgui.cpp
+CMakeFiles/highlands.dir/imgui/imgui.cpp.o: CMakeFiles/highlands.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arda/dev/Highlands/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/highlands.dir/imgui/imgui.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/highlands.dir/imgui/imgui.cpp.o -MF CMakeFiles/highlands.dir/imgui/imgui.cpp.o.d -o CMakeFiles/highlands.dir/imgui/imgui.cpp.o -c /home/arda/dev/Highlands/imgui/imgui.cpp
+
+CMakeFiles/highlands.dir/imgui/imgui.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/highlands.dir/imgui/imgui.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arda/dev/Highlands/imgui/imgui.cpp > CMakeFiles/highlands.dir/imgui/imgui.cpp.i
+
+CMakeFiles/highlands.dir/imgui/imgui.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/highlands.dir/imgui/imgui.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arda/dev/Highlands/imgui/imgui.cpp -o CMakeFiles/highlands.dir/imgui/imgui.cpp.s
+
+CMakeFiles/highlands.dir/imgui/imgui_demo.cpp.o: CMakeFiles/highlands.dir/flags.make
+CMakeFiles/highlands.dir/imgui/imgui_demo.cpp.o: /home/arda/dev/Highlands/imgui/imgui_demo.cpp
+CMakeFiles/highlands.dir/imgui/imgui_demo.cpp.o: CMakeFiles/highlands.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arda/dev/Highlands/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/highlands.dir/imgui/imgui_demo.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/highlands.dir/imgui/imgui_demo.cpp.o -MF CMakeFiles/highlands.dir/imgui/imgui_demo.cpp.o.d -o CMakeFiles/highlands.dir/imgui/imgui_demo.cpp.o -c /home/arda/dev/Highlands/imgui/imgui_demo.cpp
+
+CMakeFiles/highlands.dir/imgui/imgui_demo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/highlands.dir/imgui/imgui_demo.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arda/dev/Highlands/imgui/imgui_demo.cpp > CMakeFiles/highlands.dir/imgui/imgui_demo.cpp.i
+
+CMakeFiles/highlands.dir/imgui/imgui_demo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/highlands.dir/imgui/imgui_demo.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arda/dev/Highlands/imgui/imgui_demo.cpp -o CMakeFiles/highlands.dir/imgui/imgui_demo.cpp.s
+
+CMakeFiles/highlands.dir/imgui/imgui_draw.cpp.o: CMakeFiles/highlands.dir/flags.make
+CMakeFiles/highlands.dir/imgui/imgui_draw.cpp.o: /home/arda/dev/Highlands/imgui/imgui_draw.cpp
+CMakeFiles/highlands.dir/imgui/imgui_draw.cpp.o: CMakeFiles/highlands.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arda/dev/Highlands/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/highlands.dir/imgui/imgui_draw.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/highlands.dir/imgui/imgui_draw.cpp.o -MF CMakeFiles/highlands.dir/imgui/imgui_draw.cpp.o.d -o CMakeFiles/highlands.dir/imgui/imgui_draw.cpp.o -c /home/arda/dev/Highlands/imgui/imgui_draw.cpp
+
+CMakeFiles/highlands.dir/imgui/imgui_draw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/highlands.dir/imgui/imgui_draw.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arda/dev/Highlands/imgui/imgui_draw.cpp > CMakeFiles/highlands.dir/imgui/imgui_draw.cpp.i
+
+CMakeFiles/highlands.dir/imgui/imgui_draw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/highlands.dir/imgui/imgui_draw.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arda/dev/Highlands/imgui/imgui_draw.cpp -o CMakeFiles/highlands.dir/imgui/imgui_draw.cpp.s
+
+CMakeFiles/highlands.dir/imgui/imgui_tables.cpp.o: CMakeFiles/highlands.dir/flags.make
+CMakeFiles/highlands.dir/imgui/imgui_tables.cpp.o: /home/arda/dev/Highlands/imgui/imgui_tables.cpp
+CMakeFiles/highlands.dir/imgui/imgui_tables.cpp.o: CMakeFiles/highlands.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arda/dev/Highlands/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/highlands.dir/imgui/imgui_tables.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/highlands.dir/imgui/imgui_tables.cpp.o -MF CMakeFiles/highlands.dir/imgui/imgui_tables.cpp.o.d -o CMakeFiles/highlands.dir/imgui/imgui_tables.cpp.o -c /home/arda/dev/Highlands/imgui/imgui_tables.cpp
+
+CMakeFiles/highlands.dir/imgui/imgui_tables.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/highlands.dir/imgui/imgui_tables.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arda/dev/Highlands/imgui/imgui_tables.cpp > CMakeFiles/highlands.dir/imgui/imgui_tables.cpp.i
+
+CMakeFiles/highlands.dir/imgui/imgui_tables.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/highlands.dir/imgui/imgui_tables.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arda/dev/Highlands/imgui/imgui_tables.cpp -o CMakeFiles/highlands.dir/imgui/imgui_tables.cpp.s
+
+CMakeFiles/highlands.dir/imgui/imgui_widgets.cpp.o: CMakeFiles/highlands.dir/flags.make
+CMakeFiles/highlands.dir/imgui/imgui_widgets.cpp.o: /home/arda/dev/Highlands/imgui/imgui_widgets.cpp
+CMakeFiles/highlands.dir/imgui/imgui_widgets.cpp.o: CMakeFiles/highlands.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arda/dev/Highlands/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/highlands.dir/imgui/imgui_widgets.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/highlands.dir/imgui/imgui_widgets.cpp.o -MF CMakeFiles/highlands.dir/imgui/imgui_widgets.cpp.o.d -o CMakeFiles/highlands.dir/imgui/imgui_widgets.cpp.o -c /home/arda/dev/Highlands/imgui/imgui_widgets.cpp
+
+CMakeFiles/highlands.dir/imgui/imgui_widgets.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/highlands.dir/imgui/imgui_widgets.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arda/dev/Highlands/imgui/imgui_widgets.cpp > CMakeFiles/highlands.dir/imgui/imgui_widgets.cpp.i
+
+CMakeFiles/highlands.dir/imgui/imgui_widgets.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/highlands.dir/imgui/imgui_widgets.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arda/dev/Highlands/imgui/imgui_widgets.cpp -o CMakeFiles/highlands.dir/imgui/imgui_widgets.cpp.s
+
 # Object files for target highlands
 highlands_OBJECTS = \
 "CMakeFiles/highlands.dir/src/main.cpp.o" \
-"CMakeFiles/highlands.dir/src/glad.c.o"
+"CMakeFiles/highlands.dir/src/glad.c.o" \
+"CMakeFiles/highlands.dir/imgui/imgui.cpp.o" \
+"CMakeFiles/highlands.dir/imgui/imgui_demo.cpp.o" \
+"CMakeFiles/highlands.dir/imgui/imgui_draw.cpp.o" \
+"CMakeFiles/highlands.dir/imgui/imgui_tables.cpp.o" \
+"CMakeFiles/highlands.dir/imgui/imgui_widgets.cpp.o"
 
 # External object files for target highlands
 highlands_EXTERNAL_OBJECTS =
 
 highlands: CMakeFiles/highlands.dir/src/main.cpp.o
 highlands: CMakeFiles/highlands.dir/src/glad.c.o
+highlands: CMakeFiles/highlands.dir/imgui/imgui.cpp.o
+highlands: CMakeFiles/highlands.dir/imgui/imgui_demo.cpp.o
+highlands: CMakeFiles/highlands.dir/imgui/imgui_draw.cpp.o
+highlands: CMakeFiles/highlands.dir/imgui/imgui_tables.cpp.o
+highlands: CMakeFiles/highlands.dir/imgui/imgui_widgets.cpp.o
 highlands: CMakeFiles/highlands.dir/build.make
 highlands: CMakeFiles/highlands.dir/compiler_depend.ts
 highlands: /usr/local/lib/libglfw.so.3.5
@@ -117,7 +197,7 @@ highlands: /usr/lib/libX11.so
 highlands: /usr/lib/libGLX.so
 highlands: /usr/lib/libOpenGL.so
 highlands: CMakeFiles/highlands.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/arda/dev/Highlands/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable highlands"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/arda/dev/Highlands/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable highlands"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/highlands.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

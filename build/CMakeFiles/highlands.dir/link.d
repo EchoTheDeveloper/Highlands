@@ -4,6 +4,11 @@ highlands: \
   /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtbeginS.o \
   CMakeFiles/highlands.dir/src/main.cpp.o \
   CMakeFiles/highlands.dir/src/glad.c.o \
+  CMakeFiles/highlands.dir/imgui/imgui.cpp.o \
+  CMakeFiles/highlands.dir/imgui/imgui_demo.cpp.o \
+  CMakeFiles/highlands.dir/imgui/imgui_draw.cpp.o \
+  CMakeFiles/highlands.dir/imgui/imgui_tables.cpp.o \
+  CMakeFiles/highlands.dir/imgui/imgui_widgets.cpp.o \
   /usr/local/lib/libglfw.so.3.5 \
   /usr/lib/libX11.so \
   /usr/lib/libGLX.so \
@@ -53,6 +58,16 @@ highlands: \
 CMakeFiles/highlands.dir/src/main.cpp.o:
 
 CMakeFiles/highlands.dir/src/glad.c.o:
+
+CMakeFiles/highlands.dir/imgui/imgui.cpp.o:
+
+CMakeFiles/highlands.dir/imgui/imgui_demo.cpp.o:
+
+CMakeFiles/highlands.dir/imgui/imgui_draw.cpp.o:
+
+CMakeFiles/highlands.dir/imgui/imgui_tables.cpp.o:
+
+CMakeFiles/highlands.dir/imgui/imgui_widgets.cpp.o:
 
 /usr/local/lib/libglfw.so.3.5:
 
