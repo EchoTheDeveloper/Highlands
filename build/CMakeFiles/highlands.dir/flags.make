@@ -3,13 +3,13 @@
 
 # compile C with /usr/bin/cc
 # compile CXX with /usr/bin/c++
-C_DEFINES = 
+C_DEFINES = -DSHADER_FRAG=\"resources/shaders/shader.frag\" -DSHADER_VERT=\"resources/shaders/shader.vert\"
 
 C_INCLUDES = -I/home/arda/dev/Highlands/include
 
 C_FLAGS = 
 
-CXX_DEFINES = 
+CXX_DEFINES = -DSHADER_FRAG=\"resources/shaders/shader.frag\" -DSHADER_VERT=\"resources/shaders/shader.vert\"
 
 CXX_INCLUDES = -I/home/arda/dev/Highlands/include
 
