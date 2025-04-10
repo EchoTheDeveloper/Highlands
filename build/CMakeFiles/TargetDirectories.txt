@@ -1,3 +1,0 @@
-/home/arda/dev/Highlands/build/CMakeFiles/highlands.dir
-/home/arda/dev/Highlands/build/CMakeFiles/edit_cache.dir
-/home/arda/dev/Highlands/build/CMakeFiles/rebuild_cache.dir
